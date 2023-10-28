@@ -3,7 +3,7 @@
 export const Product = ({ image, name, price }) => {
   return (
     <div className="border p-4 rounded-lg shadow-md hover:shadow-lg">
-      <a href="#" className="group block">
+      <a  className="group block">
         <div className="aspect-w-3 aspect-h-4 w-full overflow-hidden rounded-lg bg-gray-200">
           <img
             src={image}

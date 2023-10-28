@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,23 +13,28 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
+              <NavLink to={'/home'}>
               <img className="h-15 w-12" src="https://firebasestorage.googleapis.com/v0/b/elchaniar-617f3.appspot.com/o/logo-new.png?alt=media&token=3955c679-d984-4afe-8652-28963bae4ab3" />
+              </NavLink>
             </div>
           </div>
 
           <div className="hidden md:block ">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+              <NavLink to={'/home'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+                Inicio
+              </NavLink>
+              <NavLink to={'/category/mates'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
                 Mates
-              </a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+              </NavLink>
+              <NavLink to={'/category/cuchillos'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
                 Cuchillos
-              </a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+              </NavLink>
+              <a className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
                 Termos
               </a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
-                About
+              <a className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+                Otros
               </a>
             </div>
           </div>
@@ -69,17 +75,20 @@ export const Navbar = () => {
 
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 grid md:grid-cols-3 gap-4">
-          <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+          <NavLink  to={'/home'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+            Inicio
+          </NavLink>
+          <NavLink to={'/category/mates'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
             Mates
-          </a>
-          <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+          </NavLink>
+          <NavLink to={'/category/cuchillos'} className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
             Cuchillos
+          </NavLink>
+          <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
+            Termos
           </a>
           <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
-            Projects
-          </a>
-          <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-orange-100">
-            About
+            Otros
           </a>
         </div>
       </div>

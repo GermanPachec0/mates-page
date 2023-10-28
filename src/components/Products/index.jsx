@@ -2,10 +2,13 @@
 import { useState, useEffect } from 'react';
 import {productsData} from '/data/products.js';
 import { Product } from '../Product';
+import { useParams } from "react-router-dom";
+
 
 export const Products = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [products , setProducts] = useState([])
+    const [products , setProducts] = useState([]);
+    const {idCategory} = useParams();
 
   // Show button when page is scrolled up to given distance
   const toggleVisibility = () => {
@@ -26,15 +29,19 @@ export const Products = () => {
   };
 
   useEffect(() => {
-    setProducts(productsData)
-  },[])
+    if (idCategory === undefined) {
+      setProducts(productsData);
+    } else {
+      const filteredProducts = productsData.filter((p) => p.category === idCategory);
+      setProducts(filteredProducts);
+    }
+  }, [idCategory]);
 
 
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
-
 
   return (
     <div className="bg-white">

@@ -10,8 +10,9 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
-              <Route path='' element={<Products/>}/>
               <Route path='/' element={<Products/>}/>
+              <Route path='/home' element={<Products/>}/>
+              <Route path='/category/:idCategory' element={<Products/>}/>
         </Routes>
       <ContactButton></ContactButton>
       </BrowserRouter>
